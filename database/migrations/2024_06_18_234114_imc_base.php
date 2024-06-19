@@ -18,7 +18,17 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
-    }
+
+        
+    });
+    Schema::create('sessions', function (Blueprint $table){
+        $table->id();
+        $table->string('nome');
+        $table->double('peso');
+        $table->double('altura');
+        $table->timestamp();
+        
+    });
 
     /**
      * Reverse the migrations.
