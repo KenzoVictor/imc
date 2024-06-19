@@ -21,20 +21,23 @@ return new class extends Migration
 
         
     });
-    Schema::create('sessions', function (Blueprint $table){
+
+    Schema::create('imc', function (Blueprint $table){
         $table->id();
         $table->string('nome');
         $table->double('peso');
         $table->double('altura');
-        $table->timestamp();
+        $table->timestamps();
         
     });
-
+}
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists("imc");
+        Schema::dropIfExists("session");
+       
     }
 };
