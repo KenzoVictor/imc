@@ -21,6 +21,7 @@ class imcController extends Controller
 
             $imc = $peso / ($altura**2);
 
+            
             $resultado["imc"] = round($imc,2);
 
             switch(true){
