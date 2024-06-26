@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ImcModel;
 
 class imcController extends Controller
 {
@@ -38,5 +39,21 @@ class imcController extends Controller
                     $resultado["faixa"] = "Obesidade";
             }
             return view("imc.index", compact('resultado'));
+        }
+        public function store(Request $request){
+            $data = $request->all();
+
+            $peso = $data["peso"];
+            $altura = $data["altura"];
+            $nome = $data["nome"];
+
+            $imc = new ImcModel();
+            $imc->nome = $nome;
+            $imc->altura = $altura;
+            $imc->peso = $peso;
+
+            $imc->save();
+
+            return redirect('/imc/calcularImc');
         }
 }
