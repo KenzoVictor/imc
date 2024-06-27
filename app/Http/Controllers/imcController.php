@@ -54,6 +54,11 @@ class imcController extends Controller
 
             $imc->save();
 
-            return redirect('/imc/calcularImc');
+            return redirect()->route('imc.calcular', $data);
+        }
+        public function show(Request $request){
+            $showImc = imcModel::orderBy('id','asc')->get();
+
+            return view('imc.show')->with('showImc', $showImc);
         }
 }
