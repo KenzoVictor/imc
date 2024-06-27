@@ -61,4 +61,10 @@ class imcController extends Controller
 
             return view('imc.show')->with('showImc', $showImc);
         }
+        public function destroy(Request $request, $id){
+            $deleteImc = ImcModel::findOrFail($id);
+            $deleteImc->delete();
+
+            return redirect('/imc/show');
+    }   
 }
