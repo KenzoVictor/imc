@@ -54,8 +54,9 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/imc/update">
+                            <form action="{{ route('imc.update', ['id' => $imc->id]) }}" method="POST">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Nome</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nome" name="novo_nome">
